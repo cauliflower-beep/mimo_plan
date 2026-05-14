@@ -4,7 +4,18 @@ export const translations = {
       features: "Features",
       impact: "Impact",
       technology: "Technology",
+      workflow: "Workflow",
       bookDemo: "Book a Demo"
+    },
+    workflow: {
+      title: "The Intelligent Closed-Loop",
+      subtitle: "See how our ReAct-powered agents handle the entire lead lifecycle autonomously.",
+      steps: [
+        { title: "Perception", desc: "Aggregates CRM, email, and behavioral data to build deep profiles." },
+        { title: "Reasoning", desc: "Analyzes intent and predicts the optimal follow-up timing via CoT." },
+        { title: "Execution", desc: "Generates and sends personalized content across all channels." },
+        { title: "Memory", desc: "Analyzes results and updates the vector brain for continuous growth." }
+      ]
     },
     hero: {
       badge: "REVOLUTIONIZING SALES WITH REACT AGENTS",
@@ -145,7 +156,18 @@ export const translations = {
       features: "产品特性",
       impact: "实际成效",
       technology: "技术架构",
+      workflow: "工作流",
       bookDemo: "预约演示"
+    },
+    workflow: {
+      title: "智能闭环工作流",
+      subtitle: "深入了解 ReAct 架构下的 Agent 如何自主处理销售线索全生命周期。",
+      steps: [
+        { title: "全渠道感知", desc: "实时汇聚 CRM、邮件及行为数据，构建深度客户画像。" },
+        { title: "逻辑推理", desc: "应用 CoT 机制识别客户意图，预测最佳跟进时机。" },
+        { title: "自动化执行", desc: "生成高度个性化内容，通过全渠道自动触达客户。" },
+        { title: "记忆进化", desc: "分析交互结果并更新向量大脑，实现系统自我优化。" }
+      ]
     },
     hero: {
       badge: "使用 ReAct 框架驱动销售变革",

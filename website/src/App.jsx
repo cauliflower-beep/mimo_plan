@@ -304,6 +304,7 @@ const Navbar = ({ lang, setLang, t, onShowModal }) => (
         </div>
         <div className="hidden md:flex items-center gap-8">
           <a href="#features" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">{t.nav.features}</a>
+          <a href="#workflow" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">{t.nav.workflow}</a>
           <a href="#impact" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">{t.nav.impact}</a>
           <a href="#how-it-works" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">{t.nav.technology}</a>
         </div>
@@ -360,6 +361,56 @@ const Hero = ({ t, onShowModal, onShowDrawer }) => (
     </div>
   </section>
 );
+
+const Workflow = ({ t }) => {
+  const icons = [
+    <Database className="w-6 h-6" />,
+    <BrainCircuit className="w-6 h-6" />,
+    <Zap className="w-6 h-6" />,
+    <ShieldCheck className="w-6 h-6" />
+  ];
+
+  return (
+    <section id="workflow" className="py-24 px-4 bg-slate-900 text-white overflow-hidden relative">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">{t.workflow.title}</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg">{t.workflow.subtitle}</p>
+        </div>
+
+        <div className="relative">
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20 -translate-y-1/2"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+            {t.workflow.steps.map((step, i) => (
+              <div key={i} className="relative group">
+                <div className="bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 hover:bg-slate-800 transition-all hover:-translate-y-2 duration-500 h-full flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6 shadow-xl shadow-primary/20 group-hover:scale-110 transition-transform relative z-10">
+                    {icons[i]}
+                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-dark text-[10px] font-bold flex items-center justify-center border border-white/20">
+                      0{i + 1}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold font-heading mb-4">{step.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">{step.desc}</p>
+                </div>
+                {/* Arrow for mobile/tablet */}
+                {i < 3 && (
+                  <div className="lg:hidden flex justify-center py-4 text-primary">
+                    <ChevronRight className="w-6 h-6 rotate-90" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Impact = ({ t }) => {
   const iconMap = [
@@ -536,6 +587,7 @@ function App() {
     <div className="min-h-screen bg-background font-body text-dark selection:bg-primary/20">
       <Navbar lang={lang} setLang={setLang} t={t} onShowModal={() => setIsModalOpen(true)} />
       <Hero t={t} onShowModal={() => setIsModalOpen(true)} onShowDrawer={() => setIsDrawerOpen(true)} />
+      <Workflow t={t} />
       <Impact t={t} />
       <Features t={t} />
       
